@@ -1,6 +1,14 @@
 <span>{{pokemon}}</span>
+<br>
+<button (click)="getPokemon()">Evolvi</button>
+<button (click)="pokemon = 'pichu'">Ritorna allo stadio base</button>
 
-<button (click)="getPokemon()">Scelgo te!</button>
-<button (click)="pokemon = 'pippo'">Ritorna pippo</button>
+<br>
+<br>
+<span>{{film}}</span>
+<br>
+<button (click)="getMovie()">Trova Film</button>
+<button (click)="film = 'quel film dove fanno a botte'">Ritorna a prima</button>
+
 
 <pre>{{error|json}}</pre>
