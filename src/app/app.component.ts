@@ -51,7 +51,7 @@ export class AppComponent {
   }
 
   getLogin() {
-    this._http.post('http://192.168.1.11:3000/auth/login', {email: 'test@test.com', password: 'Alessandro12'}).subscribe(
+    this._http.post('https://192.168.1.11:3000/auth/login', {email: 'test@test.com', password: 'Alessandro12'}).subscribe(
       {
         next: (value: any) => {
           this.loginData = value?.tokenDto.accessToken;
