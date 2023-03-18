@@ -16,8 +16,9 @@ export class AppComponent {
   title = 'capacitor-prova';
 
   pokemon: any = 'pichu';
-  film: any = 'quel film dove fanno a botte'
-  error: any = {message: ''}
+  film: any = 'quel film dove fanno a botte';
+  loginData: any = 'dati del login';
+  error: any = {message: ''};
 
   getPokemon() {
     this._http.get('https://pokeapi.co/api/v2/pokemon/pikachu').subscribe(
@@ -47,6 +48,21 @@ export class AppComponent {
         }
       }
     );
+  }
+
+  getLogin() {
+    this._http.post('http://192.168.1.11:3000/auth/login', {email: 'test@test.com', password: 'Alessandro12'}).subscribe(
+      {
+        next: (value: any) => {
+          this.loginData = value?.tokenDto.accessToken;
+        },
+        error: (err: any) => {
+          debugger;
+          console.log(err);
+          this.error = err;
+        }
+      }
+    )
   }
 }
 
