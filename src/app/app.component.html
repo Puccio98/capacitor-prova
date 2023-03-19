@@ -4,17 +4,24 @@
 <button (click)="pokemon = 'pichu'">Ritorna allo stadio base</button>
 
 <br>
-<br>
+<hr>
 <span>{{film}}</span>
 <br>
 <button (click)="getMovie()">Trova Film</button>
 <button (click)="film = 'quel film dove fanno a botte'">Ritorna a prima</button>
 
 <br>
-<br>
+<hr>
 <span>{{loginData}}</span>
 <br>
 <button (click)="getLogin()">Login</button>
 <button (click)="loginData = 'dati del login'">Ripristina</button>
+
+<br>
+<hr>
+<span>{{welcomeText}}</span>
+<br>
+<button (click)="getWelcome()">Get Welcome</button>
+<button (click)="welcomeText = 'tutorial spagnolo'">Ripristina</button>
 
 <pre>{{error|json}}</pre>

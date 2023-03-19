@@ -9,7 +9,7 @@ import {HttpClient} from "@angular/common/http";
 export class AppComponent {
 
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
   ) {
   }
 
@@ -18,6 +18,7 @@ export class AppComponent {
   pokemon: any = 'pichu';
   film: any = 'quel film dove fanno a botte';
   loginData: any = 'dati del login';
+  welcomeText: any = 'tutorial spagnolo';
   error: any = {message: ''};
 
   getPokemon() {
@@ -51,19 +52,44 @@ export class AppComponent {
   }
 
   getLogin() {
-    this._http.post('https://192.168.1.11:3000/auth/login', {email: 'test@test.com', password: 'Alessandro12'}).subscribe(
+    this._http.post('https://gymhubbe-production.up.railway.app/auth/login', {email: 'test@test.com', password: 'Alessandro12'}).subscribe(
       {
         next: (value: any) => {
           this.loginData = value?.tokenDto.accessToken;
         },
         error: (err: any) => {
-          debugger;
           console.log(err);
           this.error = err;
         }
       }
     )
   }
+
+  getWelcome() {
+    this._http.post('https://backendprova-production.up.railway.app/welcome', {username: "pippo"}).subscribe(
+      {
+        next: (value: any) => {
+          this.welcomeText = value;
+        },
+        error: (err: any) => {
+          console.log(err);
+          this.error = err;
+        }
+      }
+    )
+  }
+
+
+  /*getWelcomeIonic() {
+    this._ionic_http.post('https://backendprova-production.up.railway.app/welcome', {username: "pippo"}, {})
+      .then(data => {
+        this.welcomeText = data;
+      })
+      .catch(error => {
+        console.log(error);
+        this.error = error;
+      });
+  }*/
 }
 
 

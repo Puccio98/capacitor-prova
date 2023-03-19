@@ -6,8 +6,13 @@ const config: CapacitorConfig = {
   webDir: 'dist/capacitor-prova',
   bundledWebRuntime: false,
   server: {
-    cleartext: true
-  }
+    cleartext: true,
+  },
+  // va usato quando il server è http ma il client è https
+  /*,
+  android: {
+    allowMixedContent: true
+  }*/
 };
 
 export default config;
